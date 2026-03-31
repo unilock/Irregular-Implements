@@ -38,7 +38,7 @@ class RedstoneRemoteUseScreen(
 				y = topPos + 16,
 				width = 20,
 				height = 20,
-				itemStack = icon,
+				stackGetter = { icon },
 				message = component,
 				onPress = {
 					val packet = ClientClickedMenuButton(i)

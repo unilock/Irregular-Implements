@@ -23,9 +23,13 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.alchemy.Potions
+import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
+import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.neoforged.neoforge.common.Tags
+import net.neoforged.neoforge.registries.DeferredBlock
+import net.neoforged.neoforge.registries.DeferredItem
 import vazkii.patchouli.api.PatchouliAPI
 import java.util.concurrent.CompletableFuture
 
@@ -1526,11 +1530,11 @@ class ModRecipeProvider(
 
 		val mossyCobbleRecipe = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(Potions.WATER.getAsStack()).getIngredient(),
-				ing(Items.VINE).getIngredient(),
-				ing(Items.BONE_MEAL).getIngredient()
+				ing(Potions.WATER.getAsStack()),
+				ing(Items.VINE),
+				ing(Items.BONE_MEAL)
 			),
-			centerIngredient = ing(Items.COBBLESTONE).getIngredient(),
+			centerIngredient = ing(Items.COBBLESTONE),
 			outputStack = Items.MOSSY_COBBLESTONE.defaultInstance
 		)
 
@@ -1538,11 +1542,11 @@ class ModRecipeProvider(
 
 		val energizedWater = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(Tags.Items.GUNPOWDERS).getIngredient(),
-				ing(Tags.Items.DUSTS_REDSTONE).getIngredient(),
-				ing(Tags.Items.DUSTS_GLOWSTONE).getIngredient()
+				ing(Tags.Items.GUNPOWDERS),
+				ing(Tags.Items.DUSTS_REDSTONE),
+				ing(Tags.Items.DUSTS_GLOWSTONE)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.ENERGIZED_WATER.toStack()
 		)
 
@@ -1550,11 +1554,11 @@ class ModRecipeProvider(
 
 		val fireImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(ItemTags.COALS).getIngredient(),
-				ing(Items.FLINT).getIngredient(),
-				ing(Items.BLAZE_POWDER).getIngredient()
+				ing(ItemTags.COALS),
+				ing(Items.FLINT),
+				ing(Items.BLAZE_POWDER)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.FIRE_IMBUE.toStack()
 		)
 
@@ -1562,11 +1566,11 @@ class ModRecipeProvider(
 
 		val poisonImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(Items.SPIDER_EYE).getIngredient(),
-				ing(Items.ROTTEN_FLESH).getIngredient(),
-				ing(Items.RED_MUSHROOM).getIngredient()
+				ing(Items.SPIDER_EYE),
+				ing(Items.ROTTEN_FLESH),
+				ing(Items.RED_MUSHROOM)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.POISON_IMBUE.toStack()
 		)
 
@@ -1574,11 +1578,11 @@ class ModRecipeProvider(
 
 		val experienceImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(ModItems.LESSER_MAGIC_BEAN).getIngredient(),
-				ing(Tags.Items.GEMS_LAPIS).getIngredient(),
-				ing(Tags.Items.DUSTS_GLOWSTONE).getIngredient()
+				ing(ModItems.LESSER_MAGIC_BEAN),
+				ing(Tags.Items.GEMS_LAPIS),
+				ing(Tags.Items.DUSTS_GLOWSTONE)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.EXPERIENCE_IMBUE.toStack()
 		)
 
@@ -1586,11 +1590,11 @@ class ModRecipeProvider(
 
 		val witherImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(Items.WITHER_SKELETON_SKULL).getIngredient(),
-				ing(Items.NETHER_BRICK).getIngredient(),
-				ing(Items.GHAST_TEAR).getIngredient()
+				ing(Items.WITHER_SKELETON_SKULL),
+				ing(Items.NETHER_BRICK),
+				ing(Items.GHAST_TEAR)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.WITHER_IMBUE.toStack()
 		)
 
@@ -1598,11 +1602,11 @@ class ModRecipeProvider(
 
 		val collapseImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(ModBlocks.SAKANADE_SPORES).getIngredient(),
-				ing(Items.VINE).getIngredient(),
-				ing(Tags.Items.SLIME_BALLS).getIngredient()
+				ing(ModBlocks.SAKANADE_SPORES),
+				ing(Items.VINE),
+				ing(Tags.Items.SLIME_BALLS)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.COLLAPSE_IMBUE.toStack()
 		)
 
@@ -1610,11 +1614,11 @@ class ModRecipeProvider(
 
 		val spectreImbue = ImbuingRecipeBuilder(
 			outerIngredients = listOf(
-				ing(ModItems.ECTOPLASM).getIngredient(),
-				ing(Tags.Items.STORAGE_BLOCKS_LAPIS).getIngredient(),
-				ing(Items.OXEYE_DAISY).getIngredient()
+				ing(ModItems.ECTOPLASM),
+				ing(Tags.Items.STORAGE_BLOCKS_LAPIS),
+				ing(Items.OXEYE_DAISY)
 			),
-			centerIngredient = ing(Potions.WATER.getAsStack()).getIngredient(),
+			centerIngredient = ing(Potions.WATER.getAsStack()),
 			outputStack = ModItems.SPECTRE_IMBUE.toStack()
 		)
 
@@ -1639,6 +1643,18 @@ class ModRecipeProvider(
 		for ((recipe, name) in recipes) {
 			recipe.save(recipeOutput, OtherUtil.modResource(name))
 		}
+	}
+
+	private fun ing(item: ItemLike): Ingredient {
+		return Ingredient.of(item);
+	}
+
+	private fun ing(stack: ItemStack): Ingredient {
+		return Ingredient.of(stack);
+	}
+
+	private fun ing(tagKey: TagKey<Item>): Ingredient {
+		return Ingredient.of(tagKey);
 	}
 
 }
